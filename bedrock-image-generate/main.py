@@ -3,33 +3,70 @@ import boto3
 import json
 import os
 
-MODEL_ID = "stability.sd3-5-large-v1:0" 
 
-bedrock = boto3.client("bedrock-runtime", region_name="us-west-2")
+def generateTextToImage(prompt: str, model_id: str, negative_prompt: str, seed: int, aspect_ratio: str, output_format: str):
 
-print("Enter a prompt for the text-to-image model:")
-prompt = input()
+    bedrock = boto3.client("bedrock-runtime", region_name="us-west-2")
 
-body = {
-    "prompt": prompt,
-    "mode": "text-to-image"
-}
-response = bedrock.invoke_model(modelId=MODEL_ID, body=json.dumps(body))
+    body = {
+        "prompt": prompt,
+        "mode": "text-to-image",
+        "negative_prompt": negative_prompt,
+        "seed": seed,
+        "aspect_ratio": aspect_ratio,
+        "output_format": output_format
+    }
+    response = bedrock.invoke_model(modelId=model_id, body=json.dumps(body))
+    model_response = json.loads(response["body"].read())
+    base64_image_data = model_response["images"][0]
 
-model_response = json.loads(response["body"].read())
+    i, output_dir = 1, "output"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    while os.path.exists(os.path.join(output_dir, f"img_{i}.png")):
+        i += 1
 
-base64_image_data = model_response["images"][0]
+    image_data = base64.b64decode(base64_image_data)
 
-i, output_dir = 1, "output"
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
-while os.path.exists(os.path.join(output_dir, f"img_{i}.png")):
-    i += 1
+    image_path = os.path.join(output_dir, f"img_{i}.png")
+    with open(image_path, "wb") as file:
+        file.write(image_data)
 
-image_data = base64.b64decode(base64_image_data)
+    return image_path
+    
+    
 
-image_path = os.path.join(output_dir, f"img_{i}.png")
-with open(image_path, "wb") as file:
-    file.write(image_data)
+def ImageToImage(prompt: str, model_id: str, negative_prompt: str, seed: int, aspect_ratio: str, output_format: str, image: str, strength: float):
 
-print(f"The generated image has been saved to {image_path}")
+    bedrock = boto3.client("bedrock-runtime", region_name="us-west-2")
+
+    body = {
+        "prompt": prompt,
+        "mode": "image-to-image",
+        "negative_prompt": negative_prompt,
+        "seed": seed,
+        "aspect_ratio": aspect_ratio,
+        "output_format": output_format,
+        "image": image,
+        "strength": strength
+    }
+
+    response = bedrock.invoke_model(modelId=model_id, body=json.dumps(body))
+
+    model_response = json.loads(response["body"].read())
+
+    base64_image_data = model_response["images"][0]
+
+    i, output_dir = 1, "variations_output"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    while os.path.exists(os.path.join(output_dir, f"img_{i}.png")):
+        i += 1
+
+    image_data = base64.b64decode(base64_image_data)
+
+    image_path = os.path.join(output_dir, f"img_{i}.png")
+    with open(image_path, "wb") as file:
+        file.write(image_data)
+
+    return image_path
