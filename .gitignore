@@ -3,6 +3,7 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+.vllm
 .venv
 
 # C extensions
