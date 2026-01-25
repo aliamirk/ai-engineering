@@ -1,6 +1,7 @@
 import os
 import time
 import json
+import traceback
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 import requests
@@ -8,8 +9,7 @@ from dotenv import load_dotenv
 import gspread
 from google.oauth2.service_account import Credentials
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import ChatPromptTemplate
-from langchain.schema.runnable import RunnablePassthrough
+from langchain_core.prompts import ChatPromptTemplate
 
 # Load environment variables
 load_dotenv()
@@ -68,8 +68,8 @@ class FacebookGroupAgent:
     def setup_google_sheets(self):
         """Setup Google Sheets connection for logging."""
         try:
-            creds_file = os.getenv('GOOGLE_SHEETS_CREDS', 'credentials.json')
-            sheet_name = os.getenv('GOOGLE_SHEET_NAME', 'FB_Agent_Logs')
+            creds_file = os.getenv('CREDENTIALS_FILE', 'credentials.json')
+            sheet_name = os.getenv('GOOGLE_SHEET_NAME', 'FB_Agents_Logs').strip()
 
             scopes = [
                 'https://www.googleapis.com/auth/spreadsheets',
@@ -90,13 +90,14 @@ class FacebookGroupAgent:
 
             print("✓ Google Sheets connected successfully")
         except Exception as e:
+            traceback.print_exc()
             print(f"⚠ Google Sheets setup failed: {e}")
             self.sheet = None
 
-    def make_api_request(self, endpoint: str, method: str = 'GET',
-                         params: Dict = None, data: Dict = None,
-                         max_retries: int = 3) -> Optional[Dict]:
+    def make_api_request(self, endpoint: str, method: str = 'GET', params: Dict = None, data: Dict = None, max_retries: int = 3) -> Optional[Dict]:
+        
         """Make API request with exponential backoff."""
+       
         url = f"{self.base_url}/{endpoint}"
 
         if params is None:

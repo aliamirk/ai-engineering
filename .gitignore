@@ -5,10 +5,12 @@ __pycache__/
 
 .vllm
 .venv
+credentials.json
 
 # C extensions
 *.so
 
+halogen-honor-485220-a5-df309d9fb79c.json
 .DS_Store
 .gitignore
 
