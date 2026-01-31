@@ -1,0 +1,4 @@
+{"trace_id": "b16b365c-73da-4232-bad1-c5ae59aae951", "timestamp": 1769881232.439198, "event": "run_start", "data": {"session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec"}}
+{"trace_id": "b16b365c-73da-4232-bad1-c5ae59aae951", "timestamp": 1769881232.43955, "event": "user_message", "data": {"text": "add 90 to this"}}
+{"trace_id": "b16b365c-73da-4232-bad1-c5ae59aae951", "timestamp": 1769881232.441254, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "b16b365c-73da-4232-bad1-c5ae59aae951", "timestamp": 1769881242.4409862, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 10.0}}

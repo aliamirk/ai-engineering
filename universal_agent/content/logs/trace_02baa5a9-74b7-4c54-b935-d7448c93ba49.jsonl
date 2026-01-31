@@ -1,0 +1,23 @@
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881527.54028, "event": "run_start", "data": {"session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881527.540627, "event": "user_message", "data": {"text": "how many days in week? add 10 to them and multiply result by 5."}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881527.542342, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881530.4712162, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 2.929}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881530.471531, "event": "llm_decision", "data": {"step": 0, "action": "tool"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881530.473492, "event": "tool_call_requested", "data": {"tool_name": "add", "args": {"a": 7, "b": 10}}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881530.473783, "event": "span_start", "data": {"name": "tool:add"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881530.4739509, "event": "span_end", "data": {"name": "tool:add", "duration_sec": 0.0}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881530.474108, "event": "tool_call_result", "data": {"tool_name": "add", "success": true, "attempt": 1}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881530.474247, "event": "tool_call_result", "data": {"tool_name": "add", "tool_response": 17}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881530.47438, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881532.300256, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 1.826}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881532.300568, "event": "llm_decision", "data": {"step": 1, "action": "tool"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881532.302242, "event": "tool_call_requested", "data": {"tool_name": "multiply", "args": {"a": 17, "b": 5}}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881532.30237, "event": "span_start", "data": {"name": "tool:multiply"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881532.302627, "event": "span_end", "data": {"name": "tool:multiply", "duration_sec": 0.0}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881532.302772, "event": "tool_call_result", "data": {"tool_name": "multiply", "success": true, "attempt": 1}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881532.302887, "event": "tool_call_result", "data": {"tool_name": "multiply", "tool_response": 85}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881532.3029928, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881534.073987, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 1.771}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881534.074292, "event": "llm_decision", "data": {"step": 2, "action": "final"}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881534.0760908, "event": "final_answer", "data": {"text": "There are 7 days in a week. Adding 10 to that gives 17. Multiplying 17 by 5 gives 85."}}
+{"trace_id": "02baa5a9-74b7-4c54-b935-d7448c93ba49", "timestamp": 1769881534.077296, "event": "run_complete", "data": {"steps_used": 3}}

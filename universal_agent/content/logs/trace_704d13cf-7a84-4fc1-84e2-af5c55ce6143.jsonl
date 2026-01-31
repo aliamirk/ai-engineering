@@ -1,0 +1,7 @@
+{"trace_id": "704d13cf-7a84-4fc1-84e2-af5c55ce6143", "timestamp": 1769881617.055139, "event": "run_start", "data": {"session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec"}}
+{"trace_id": "704d13cf-7a84-4fc1-84e2-af5c55ce6143", "timestamp": 1769881617.0554812, "event": "user_message", "data": {"text": "okay"}}
+{"trace_id": "704d13cf-7a84-4fc1-84e2-af5c55ce6143", "timestamp": 1769881617.057181, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "704d13cf-7a84-4fc1-84e2-af5c55ce6143", "timestamp": 1769881618.751692, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 1.695}}
+{"trace_id": "704d13cf-7a84-4fc1-84e2-af5c55ce6143", "timestamp": 1769881618.751935, "event": "llm_decision", "data": {"step": 0, "action": "final"}}
+{"trace_id": "704d13cf-7a84-4fc1-84e2-af5c55ce6143", "timestamp": 1769881618.7537122, "event": "final_answer", "data": {"text": "Okay, how can I help you further?"}}
+{"trace_id": "704d13cf-7a84-4fc1-84e2-af5c55ce6143", "timestamp": 1769881618.754456, "event": "run_complete", "data": {"steps_used": 1}}

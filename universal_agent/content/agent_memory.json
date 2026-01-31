@@ -1,0 +1,26 @@
+[
+  {
+    "session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec",
+    "timestamp": "2026-01-31T17:46:50.638029+00:00",
+    "role": "user",
+    "content": "delete all the previous memory"
+  },
+  {
+    "session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec",
+    "timestamp": "2026-01-31T17:46:50.638029+00:00",
+    "role": "assistant",
+    "content": "All previous memory has been permanently deleted."
+  },
+  {
+    "session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec",
+    "timestamp": "2026-01-31T17:46:58.753832+00:00",
+    "role": "user",
+    "content": "okay"
+  },
+  {
+    "session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec",
+    "timestamp": "2026-01-31T17:46:58.753832+00:00",
+    "role": "assistant",
+    "content": "Okay, how can I help you further?"
+  }
+]

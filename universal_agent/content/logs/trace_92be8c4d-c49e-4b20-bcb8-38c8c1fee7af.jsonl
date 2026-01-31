@@ -1,0 +1,7 @@
+{"trace_id": "92be8c4d-c49e-4b20-bcb8-38c8c1fee7af", "timestamp": 1769881489.6643698, "event": "run_start", "data": {"session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec"}}
+{"trace_id": "92be8c4d-c49e-4b20-bcb8-38c8c1fee7af", "timestamp": 1769881489.664769, "event": "user_message", "data": {"text": "so that is you"}}
+{"trace_id": "92be8c4d-c49e-4b20-bcb8-38c8c1fee7af", "timestamp": 1769881489.664905, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "92be8c4d-c49e-4b20-bcb8-38c8c1fee7af", "timestamp": 1769881492.8203368, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 3.155}}
+{"trace_id": "92be8c4d-c49e-4b20-bcb8-38c8c1fee7af", "timestamp": 1769881492.820637, "event": "llm_decision", "data": {"step": 0, "action": "final"}}
+{"trace_id": "92be8c4d-c49e-4b20-bcb8-38c8c1fee7af", "timestamp": 1769881492.822431, "event": "final_answer", "data": {"text": "I am a large language model, trained by Google. I don't have a personal identity or physical form, but I can process information and respond to your requests."}}
+{"trace_id": "92be8c4d-c49e-4b20-bcb8-38c8c1fee7af", "timestamp": 1769881492.824113, "event": "run_complete", "data": {"steps_used": 1}}

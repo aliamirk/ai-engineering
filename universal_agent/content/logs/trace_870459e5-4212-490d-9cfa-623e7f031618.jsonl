@@ -1,0 +1,31 @@
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881361.329053, "event": "run_start", "data": {"session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881361.32942, "event": "user_message", "data": {"text": "how many days are there in a year? multiply them by 10 and 50 to them."}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881361.3311691, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881363.869026, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 2.538}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881363.869339, "event": "llm_decision", "data": {"step": 0, "action": "tool"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881363.871397, "event": "tool_call_requested", "data": {"tool_name": "multiply", "args": {"a": 365, "b": 10}}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881363.871647, "event": "span_start", "data": {"name": "tool:multiply"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881363.871792, "event": "span_end", "data": {"name": "tool:multiply", "duration_sec": 0.0}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881363.871918, "event": "tool_call_result", "data": {"tool_name": "multiply", "success": true, "attempt": 1}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881363.872038, "event": "tool_call_result", "data": {"tool_name": "multiply", "tool_response": 3650}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881363.872159, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881365.487364, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 1.615}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881365.487668, "event": "llm_decision", "data": {"step": 1, "action": "tool"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881365.489578, "event": "tool_call_requested", "data": {"tool_name": "add", "args": {"a": 3650, "b": 90}}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881365.489816, "event": "span_start", "data": {"name": "tool:add"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881365.489959, "event": "span_end", "data": {"name": "tool:add", "duration_sec": 0.0}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881365.490083, "event": "tool_call_result", "data": {"tool_name": "add", "success": true, "attempt": 1}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881365.490203, "event": "tool_call_result", "data": {"tool_name": "add", "tool_response": 3740}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881365.490328, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881368.131449, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 2.641}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881368.1317492, "event": "llm_decision", "data": {"step": 2, "action": "tool"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881368.133539, "event": "tool_call_requested", "data": {"tool_name": "add", "args": {"a": 3740, "b": 50}}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881368.133785, "event": "span_start", "data": {"name": "tool:add"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881368.13392, "event": "span_end", "data": {"name": "tool:add", "duration_sec": 0.0}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881368.134039, "event": "tool_call_result", "data": {"tool_name": "add", "success": true, "attempt": 1}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881368.134153, "event": "tool_call_result", "data": {"tool_name": "add", "tool_response": 3790}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881368.134348, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881370.010117, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 1.876}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881370.010436, "event": "llm_decision", "data": {"step": 3, "action": "final"}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881370.012365, "event": "final_answer", "data": {"text": "There are 365 days in a year. Multiplying that by 10 gives 3650. Adding 90 to that gives 3740. Adding 50 to that gives 3790."}}
+{"trace_id": "870459e5-4212-490d-9cfa-623e7f031618", "timestamp": 1769881370.0134752, "event": "run_complete", "data": {"steps_used": 4}}

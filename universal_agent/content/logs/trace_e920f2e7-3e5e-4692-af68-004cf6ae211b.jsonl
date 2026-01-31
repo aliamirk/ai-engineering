@@ -1,0 +1,21 @@
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881595.6921742, "event": "run_start", "data": {"session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881595.6925051, "event": "user_message", "data": {"text": "delete all the previous memory"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881595.694239, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881598.8319318, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 3.138}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881598.832223, "event": "llm_decision", "data": {"step": 0, "action": "human"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881598.834166, "event": "human_approval_requested", "data": {"reason": "Deleting all memory is an irreversible and destructive operation. I need your explicit approval to proceed with permanently deleting all long-term memory."}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881607.559045, "event": "human_approval_result", "data": {"approved": true}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881607.5593102, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.4724, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 1.913}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.4726882, "event": "llm_decision", "data": {"step": 1, "action": "tool"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.474688, "event": "tool_call_requested", "data": {"tool_name": "delete_all_memory", "args": {"confirm": "true"}}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.475033, "event": "span_start", "data": {"name": "tool:delete_all_memory"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.476171, "event": "span_end", "data": {"name": "tool:delete_all_memory", "duration_sec": 0.001}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.476405, "event": "tool_call_result", "data": {"tool_name": "delete_all_memory", "success": true, "attempt": 1}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.476606, "event": "tool_call_result", "data": {"tool_name": "delete_all_memory", "tool_response": "All long-term memory has been permanently deleted."}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.476798, "event": "memory_cleared", "data": {}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881609.476989, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881610.635901, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 1.159}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881610.636168, "event": "llm_decision", "data": {"step": 2, "action": "final"}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881610.63787, "event": "final_answer", "data": {"text": "All previous memory has been permanently deleted."}}
+{"trace_id": "e920f2e7-3e5e-4692-af68-004cf6ae211b", "timestamp": 1769881610.6389608, "event": "run_complete", "data": {"steps_used": 3}}

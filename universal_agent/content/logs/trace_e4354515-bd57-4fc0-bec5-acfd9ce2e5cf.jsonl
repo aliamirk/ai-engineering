@@ -1,0 +1,7 @@
+{"trace_id": "e4354515-bd57-4fc0-bec5-acfd9ce2e5cf", "timestamp": 1769881471.577703, "event": "run_start", "data": {"session_id": "337dc5f6-c963-4a9d-981c-22a7203298ec"}}
+{"trace_id": "e4354515-bd57-4fc0-bec5-acfd9ce2e5cf", "timestamp": 1769881471.578034, "event": "user_message", "data": {"text": "what do you call a llm with no context?"}}
+{"trace_id": "e4354515-bd57-4fc0-bec5-acfd9ce2e5cf", "timestamp": 1769881471.579745, "event": "span_start", "data": {"name": "llm_call"}}
+{"trace_id": "e4354515-bd57-4fc0-bec5-acfd9ce2e5cf", "timestamp": 1769881473.657009, "event": "span_end", "data": {"name": "llm_call", "duration_sec": 2.077}}
+{"trace_id": "e4354515-bd57-4fc0-bec5-acfd9ce2e5cf", "timestamp": 1769881473.65732, "event": "llm_decision", "data": {"step": 0, "action": "final"}}
+{"trace_id": "e4354515-bd57-4fc0-bec5-acfd9ce2e5cf", "timestamp": 1769881473.659252, "event": "final_answer", "data": {"text": "An LLM with no context is often referred to as a \"stateless\" LLM, or one that lacks \"memory\" of previous interactions. It processes each input independently without relying on past conversational turns."}}
+{"trace_id": "e4354515-bd57-4fc0-bec5-acfd9ce2e5cf", "timestamp": 1769881473.660338, "event": "run_complete", "data": {"steps_used": 1}}
