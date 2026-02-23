@@ -96,3 +96,49 @@ class ToolRegistry:
             Dictionary mapping tool names to tool instances
         """
         return self._tools.copy()
+    
+    def check_authorization(self, tool_name: str, user_role: str) -> tuple[bool, Optional[str]]:
+        """Verify user role before tool execution.
+        
+        This method checks if a user's role is authorized to use a specific tool
+        before allowing execution. If unauthorized, it returns an error without
+        making any API calls.
+        
+        Args:
+            tool_name: The name of the tool to check authorization for
+            user_role: The user's role (HR_User, Admin_User, or Gate_User)
+            
+        Returns:
+            A tuple of (is_authorized, error_message):
+                - is_authorized: True if the user is authorized, False otherwise
+                - error_message: None if authorized, error message string if not authorized
+        """
+        # Get the tool
+        tool = self.get_tool(tool_name)
+        
+        # If tool doesn't exist, return unauthorized
+        if tool is None:
+            return False, f"Tool '{tool_name}' not found."
+        
+        # Get the required role(s) for this tool
+        required_role = tool.required_role
+        
+        # Check authorization based on required role type
+        # Handle tools that allow multiple roles (like mark_notification_read)
+        if isinstance(required_role, list):
+            if user_role in required_role:
+                return True, None
+            else:
+                return False, f"Access denied. Tool '{tool_name}' requires one of the following roles: {', '.join(required_role)}. Your role: {user_role}."
+        
+        # Handle tools available to all roles
+        elif required_role == "All":
+            return True, None
+        
+        # Handle tools with a specific role requirement
+        elif required_role == user_role:
+            return True, None
+        
+        # User role doesn't match required role
+        else:
+            return False, f"Access denied. Tool '{tool_name}' requires role '{required_role}'. Your role: {user_role}."

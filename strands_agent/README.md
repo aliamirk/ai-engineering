@@ -164,17 +164,16 @@ strands_agent/
 │   ├── agent.py           # Main GatePassAgent class
 │   ├── api_client.py      # API client with retry logic
 │   ├── models.py          # Data models
-│   ├── memory.py          # Conversation memory
+│   ├── conversation_memory.py  # Conversation memory
+│   ├── file_handler.py    # File validation utilities
+│   ├── tool_registry.py   # Tool registry with role filtering
 │   └── config.py          # Configuration management
 ├── tools/                  # Tool definitions
 │   ├── __init__.py
-│   ├── registry.py        # Tool registry with role filtering
 │   ├── hr_tools.py        # HR operation tools
 │   ├── admin_tools.py     # Admin operation tools
 │   ├── gate_tools.py      # Gate operation tools
-│   ├── notification_tools.py  # Notification tools
-│   ├── qr_tools.py        # QR code tools
-│   └── file_utils.py      # File validation utilities
+│   └── notification_qr_tools.py  # Notification and QR code tools
 ├── tests/                  # Test suite
 │   ├── unit/              # Unit tests
 │   ├── property/          # Property-based tests
@@ -229,31 +228,122 @@ The project uses Hypothesis for property-based testing to verify universal prope
 
 ## Configuration
 
+The agent uses a centralized configuration management system that loads settings from environment variables with sensible defaults.
+
+### Configuration Module
+
+The configuration module (`core/config.py`) provides:
+
+- **Environment Variable Loading**: Automatically loads from `.env` file in development
+- **Environment-Specific Defaults**: Different defaults for development, staging, and production
+- **Type Validation**: Ensures all configuration values are valid
+- **Global Configuration Instance**: Singleton pattern for consistent configuration access
+
+### Using Configuration in Code
+
+```python
+from strands_agent.core import get_config
+
+# Get the global configuration instance
+config = get_config()
+
+# Access configuration values
+print(config.api_base_url)      # http://localhost:8000
+print(config.api_timeout)       # 30
+print(config.max_file_size)     # 5242880 (5MB)
+print(config.allowed_file_formats)  # ['jpeg', 'jpg', 'png', 'heic']
+print(config.environment)       # development
+```
+
+### Configuration Values
+
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| `API_BASE_URL` | Base URL for Gate Pass API | Environment-specific | Yes |
+| `API_TIMEOUT` | Request timeout in seconds | 30 | No |
+| `MAX_FILE_SIZE` | Max file size in bytes | 5242880 (5MB) | No |
+| `ALLOWED_FILE_FORMATS` | Comma-separated file formats | jpeg,jpg,png,heic | No |
+| `ENVIRONMENT` | Current environment | development | No |
+| `OPENAI_API_KEY` | OpenAI API key for LLM | None | Yes (for LLM) |
+| `DEFAULT_USER_ROLE` | Default user role | HR_User | No |
+
 ### Environment-Specific Configuration
 
 The agent supports different configurations for development, staging, and production:
 
-```python
-# Development
+**Development** (default):
+```bash
 ENVIRONMENT=development
-API_BASE_URL=http://localhost:8000
-
-# Staging
-ENVIRONMENT=staging
-API_BASE_URL=https://staging-api.example.com
-
-# Production
-ENVIRONMENT=production
-API_BASE_URL=https://api.example.com
+# API_BASE_URL defaults to http://localhost:8000
 ```
 
-### File Upload Limits
+**Staging**:
+```bash
+ENVIRONMENT=staging
+# API_BASE_URL defaults to https://staging-api.gatepass.example.com
+```
+
+**Production**:
+```bash
+ENVIRONMENT=production
+# API_BASE_URL defaults to https://api.gatepass.example.com
+```
+
+You can override the default API URL by explicitly setting `API_BASE_URL`:
+
+```bash
+ENVIRONMENT=production
+API_BASE_URL=https://custom-api.example.com
+```
+
+### File Upload Configuration
 
 Configure file upload restrictions:
 
-```python
-MAX_FILE_SIZE=5242880  # 5MB
+```bash
+MAX_FILE_SIZE=5242880  # 5MB in bytes
 ALLOWED_FILE_FORMATS=jpeg,jpg,png,heic
+```
+
+To change limits:
+
+```bash
+# Allow 10MB files
+MAX_FILE_SIZE=10485760
+
+# Only allow JPEG and PNG
+ALLOWED_FILE_FORMATS=jpeg,jpg,png
+```
+
+### Configuration Validation
+
+The configuration module validates all values on load:
+
+- `API_BASE_URL` must start with `http://` or `https://`
+- `API_TIMEOUT` must be positive
+- `MAX_FILE_SIZE` must be positive
+- `ALLOWED_FILE_FORMATS` cannot be empty
+- `ENVIRONMENT` must be one of: development, staging, production
+- `DEFAULT_USER_ROLE` must be one of: HR_User, Admin_User, Gate_User
+
+Invalid configuration will raise a `ValueError` with a descriptive message.
+
+### Testing with Different Configurations
+
+For testing, you can reset and reload configuration:
+
+```python
+from strands_agent.core import reset_config, get_config
+import os
+
+# Change environment variable
+os.environ['API_TIMEOUT'] = '60'
+
+# Reset and reload configuration
+reset_config()
+config = get_config()
+
+print(config.api_timeout)  # 60
 ```
 
 ## Error Handling

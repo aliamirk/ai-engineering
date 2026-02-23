@@ -2,8 +2,9 @@
 
 __version__ = "0.1.0"
 
-from strands_agent.core import GatePassAPIClient
+from strands_agent.core import GatePassAgent, GatePassAPIClient
 
 __all__ = [
+    "GatePassAgent",
     "GatePassAPIClient",
 ]
