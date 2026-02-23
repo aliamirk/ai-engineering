@@ -124,8 +124,8 @@ This implementation plan creates a conversational AI agent using LangChain that 
     - Implement response formatting for each tool
     - _Requirements: 3.6, 3.7, 3.8, 3.9, 7.1, 7.3, 9.1, 9.2, 9.4_
 
-- [-] 9. Implement tool definitions for Notification and QR Code operations
-  - [~] 9.1 Create Notification and QR Code tool definitions
+- [ ] 9. Implement tool definitions for Notification and QR Code operations
+  - [x] 9.1 Create Notification and QR Code tool definitions
     - Create get_admin_notifications tool with no parameters, required_role='Admin_User'
     - Create get_hr_notifications tool with no parameters, required_role='HR_User'
     - Create mark_notification_read tool with notification_id parameter, required_role=['Admin_User', 'HR_User']
@@ -133,7 +133,7 @@ This implementation plan creates a conversational AI agent using LangChain that 
     - Each tool must include name, description, parameter schema, required_role, api_endpoint, http_method
     - _Requirements: 4.1, 4.2, 4.3, 5.1_
   
-  - [~] 9.2 Implement Notification and QR Code tool execution handlers
+  - [x] 9.2 Implement Notification and QR Code tool execution handlers
     - Implement execution logic to call API client with correct endpoint and method
     - Implement response formatting, ensuring QR code image data is returned without modification
     - _Requirements: 4.4, 4.5, 4.6, 5.2, 5.3_
@@ -144,11 +144,11 @@ This implementation plan creates a conversational AI agent using LangChain that 
     - Test that QR code image data is returned without modification
     - _Requirements: 5.3_
 
-- [~] 10. Checkpoint - Ensure all tests pass
+- [x] 10. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [~] 11. Implement tool registry with role-based filtering
-  - [~] 11.1 Create ToolRegistry class
+- [-] 11. Implement tool registry with role-based filtering
+  - [-] 11.1 Create ToolRegistry class
     - Implement __init__ to register all tools
     - Implement get_tools_for_role method to filter tools by user role
     - Implement get_tool method to retrieve specific tool by name
@@ -190,7 +190,7 @@ This implementation plan creates a conversational AI agent using LangChain that 
     - Test that tool execution is blocked before API call if role doesn't match
     - _Requirements: 8.2_
 
-- [~] 12. Implement conversation memory and context management
+- [ ] 12. Implement conversation memory and context management
   - [~] 12.1 Create ConversationMemory class
     - Implement __init__ to initialize empty context
     - Implement store_pass_reference method to save pass_number and pass_id
@@ -205,7 +205,7 @@ This implementation plan creates a conversational AI agent using LangChain that 
     - Test handling of ambiguous references
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5_
 
-- [~] 13. Implement main GatePassAgent class
+- [ ] 13. Implement main GatePassAgent class
   - [~] 13.1 Create GatePassAgent with LangChain integration
     - Implement __init__ with api_base_url, llm, and user_role parameters
     - Initialize API client, tool registry, and conversation memory
@@ -239,7 +239,7 @@ This implementation plan creates a conversational AI agent using LangChain that 
 - [~] 14. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [~] 15. Create configuration and deployment files
+- [ ] 15. Create configuration and deployment files
   - [~] 15.1 Create configuration management
     - Create config.py to load configuration from environment variables
     - Define API_BASE_URL, API_TIMEOUT, MAX_FILE_SIZE, ALLOWED_FILE_FORMATS
@@ -258,7 +258,7 @@ This implementation plan creates a conversational AI agent using LangChain that 
     - Test environment-specific configuration
     - _Requirements: 12.5, 12.6_
 
-- [~] 16. Create documentation
+- [ ] 16. Create documentation
   - [~] 16.1 Update README with comprehensive documentation
     - Document installation and setup instructions
     - Document configuration options and environment variables

@@ -13,6 +13,7 @@ from .file_handler import (
     validate_file_size,
     prepare_multipart_data,
 )
+from .tool_registry import ToolRegistry
 
 __all__ = [
     "GatePassAPIClient",
@@ -24,4 +25,5 @@ __all__ = [
     "validate_file_format",
     "validate_file_size",
     "prepare_multipart_data",
+    "ToolRegistry",
 ]
